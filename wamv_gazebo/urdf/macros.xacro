@@ -15,6 +15,4 @@
   <xacro:include filename="$(find wamv_gazebo)/urdf/components/wamv_p3d.xacro" />
   <xacro:include filename="$(find wamv_gazebo)/urdf/components/wamv_pinger.xacro" />
 
-  <!-- Include ball shooter macros -->
-  <xacro:include filename="$(find wamv_gazebo)/urdf/components/ball_shooter.xacro" />
 </robot>
