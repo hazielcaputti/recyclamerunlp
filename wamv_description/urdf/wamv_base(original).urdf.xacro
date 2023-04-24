@@ -1,58 +1,10 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="wam-v">
-<<<<<<< HEAD
+  <xacro:arg name="namespace" default="wamv"/>  
+  <xacro:property name="namespace" value="$(arg namespace)" scope="global" /> 
   <!-- Macro for creating the main collisions as simple shapes. -->
   <xacro:macro name="main_collisions" params="prefix reflect:=1">
     <!-- Main float -->
-=======
-  <xacro:arg name="namespace" default="wamv"/>  
-    <xacro:property name="namespace" value="$(arg namespace)" scope="global" /> 
-  <!-- Macro for creating the main collisions as simple shapes. -->
-  <xacro:macro name="main_collisions" params="prefix reflect:=1">
-  
-<!-- Top part -->  
-    <collision name="topPart">
-      <origin xyz="0.95 0.0 0.5"/>
-      <geometry>
-        <box size="1.5 1.1 0.12"/>
-      </geometry>
-    </collision>
-
-    <!-- External sides -->
-    <collision name="${prefix}_externalSide">
-      <origin xyz="${0.95-0.05} ${((0.5-0.06875)*reflect)} ${0.5-0.29}"/>
-      <geometry>
-        <box size="1.35 0.13 0.67"/>
-      </geometry>
-    </collision>
-
-    <!-- Internal sides -->
-    <collision name="$prefix_internalSide">
-      <origin xyz="${0.95-0.05} ${((0.446875-0.06875-0.065)*reflect)} ${0.5-0.25}"/>
-      <geometry>
-        <box size="1.35 0.15625 0.5"/>
-      </geometry>
-    </collision>
-
-   <!-- Center part -->
-    <collision name="centerPart">
-      <origin xyz="${0.95-0.6125} 0.0 ${0.5-0.25}"/>
-      <geometry>
-        <box size="0.20 0.5 0.5"/>
-      </geometry>
-    </collision>
-
-   <!-- Botoom part -->
-    <collision name="bottomPart">
-      <origin xyz="0.95 0.0 ${0.5-0.25-0.365}"/>
-      <geometry>
-        <box size="1.3 0.55 0.285"/>
-      </geometry>
-    </collision>
-
-
-    <!-- Main float 
->>>>>>> e63506e (update2)
     <collision name="${prefix}_float">
       <origin xyz="-0.4 ${1.03*reflect} 0.2" rpy="${0*reflect} 1.57 0" />
       <geometry>
@@ -73,11 +25,7 @@
       </geometry>
     </collision>
 
-<<<<<<< HEAD
     <!-- Front beam -->
-=======
-     Front beam 
->>>>>>> e63506e (update2)
     <collision name="front_${prefix}_beam_lower">
       <origin xyz="0.9 ${0.85*reflect} 1" rpy="${0.78*reflect} 0 0" />
       <geometry>
@@ -92,11 +40,7 @@
       </geometry>
     </collision>
 
-<<<<<<< HEAD
     <!-- Mid beam -->
-=======
-     Mid beam 
->>>>>>> e63506e (update2)
     <collision name="mid_${prefix}_beam_lower">
       <origin xyz="-0.65 ${0.99*reflect} 0.7" rpy="${0.1*reflect} 0.25 0" />
       <geometry>
@@ -118,11 +62,7 @@
       </geometry>
     </collision>
 
-<<<<<<< HEAD
     <!-- Rear beam -->
-=======
-     Rear beam 
->>>>>>> e63506e (update2)
     <collision name="rear_${prefix}_beam_lower">
       <origin xyz="-0.74 ${1.03*reflect} 0.7" rpy="${0*reflect} -0.15 0" />
       <geometry>
@@ -143,11 +83,7 @@
         <cylinder length="0.3" radius="0.03" />
       </geometry>
     </collision>
-<<<<<<< HEAD
 
-=======
--->
->>>>>>> e63506e (update2)
     <!-- Joint 
     <collision name="${prefix}_joint">
       <origin xyz="0.58 ${1.03*reflect} 0.6" rpy="${0*reflect} -0.6 0" />
@@ -155,10 +91,6 @@
         <box size="0.65 0.2 0.1" />
       </geometry>
     </collision>-->
-<<<<<<< HEAD
-=======
-    
->>>>>>> e63506e (update2)
   </xacro:macro>
 
   <link name="${namespace}/base_link">
