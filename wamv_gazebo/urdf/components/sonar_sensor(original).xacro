@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">  
 
   <xacro:macro name="sonar" params="name x y z R:=0 P:=0 Y:=0 ros_topic update_rate min_range max_range field_of_view ray_count">
-
+    
     <joint name="${name}_joint" type="fixed">
       <origin xyz= "${x} ${y} ${z}" rpy="${R} ${P} ${Y}" />
       <parent link="base_link"/>
@@ -69,6 +69,11 @@
           <frameId>${name}_link</frameId>
         </plugin>
       </sensor>
+    </gazebo>
+
+    <!-- Set color of post -->
+    <gazebo reference="${name}_link">
+      <material>Gazebo/Black</material>
     </gazebo>
   </xacro:macro>
 </robot>

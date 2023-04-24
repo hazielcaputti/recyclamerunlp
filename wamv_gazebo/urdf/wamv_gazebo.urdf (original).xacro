@@ -8,8 +8,10 @@
   <xacro:arg name="gps_enabled" default="true" />
   <xacro:arg name="imu_enabled" default="true" />
   <xacro:arg name="lidar_enabled" default="true" />
+  
   <xacro:arg name="planar_enabled" default="true" />
   <xacro:arg name="sonar_enabled" default="true" />
+  
   <xacro:arg name="vrx_sensors_enabled" default="false" />
   <xacro:arg name="thruster_namespace" default="thrusters/"/>
   <xacro:arg name="camera_namespace" default="cameras/"/>  
@@ -117,22 +119,22 @@
     
     <!-- Add simulated GPS -->
     <xacro:if value="$(arg gps_enabled)">
-      <xacro:wamv_gps name="gps_wamv" x="0.65" y="0" z="0.3" />
+      <xacro:wamv_gps name="gps_wamv" x="0.65" y="-0.1" z="0.55" />
     </xacro:if>
     
     <!-- Add Simulated IMU -->
     <xacro:if value="$(arg imu_enabled)">
-      <xacro:wamv_imu name="imu_wamv" x="1.2" y="0" z="0.3" />
+      <xacro:wamv_imu name="imu_wamv" x="1.2" y="-0.1" z="0.55" />
     </xacro:if>
     
     <!-- Add 3D LIDAR -->
     <xacro:if value="$(arg lidar_enabled)">
-      <xacro:lidar name="lidar_wamv" x="0.6" y="0" z="0.65" type="16_beam"/>
+      <xacro:lidar name="lidar_wamv" x="0.6" y="-0.1" z="1.1" type="16_beam"/>
     </xacro:if>
     
       <!-- Add PLANAR -->
   	<xacro:if value="$(arg planar_enabled)"> 
-    	<xacro:wamv_multibeam_laser name="planar_wamv" x="0.6" y="0" z="0.65"/>
+    	<xacro:wamv_multibeam_laser name="planar_wamv" x="1.2" y="0" z="1"/>
   	</xacro:if>
     
 
@@ -145,9 +147,9 @@
       <!-- Add a camera facing right -->
       <xacro:if value="$(arg camera_enabled)">
       
-      <xacro:wamv_camera name="front_camera" y="0" x="1.6" z="0.65" />
+      <xacro:wamv_camera name="front_camera" y="-0.1" x="1.6" z="1.1" />
       
-      <xacro:wamv_camera name="back_camera" y="0" x="0.30" z="0.65" P="${radians(-180)}"/>
+      <xacro:wamv_camera name="back_camera" y="-0.1" x="0.30" z="1.1" P="${radians(-180)}"/>
       
     </xacro:if>
     
